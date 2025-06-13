@@ -6,6 +6,7 @@ body {
   max-height: 100vh;
   max-width: 100vw;
   background-color: #fcefcb;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -63,7 +64,8 @@ p {
 .btn-primary {
   background-color: #fcb645;
   border-color: #e9a319;
-  transition: color .45s ease-in-out,background-color .45s ease-in-out,border-color .45s ease-in-out,box-shadow .45s ease-in-out;
+  transition: color 0.45s ease-in-out, background-color 0.45s ease-in-out,
+    border-color 0.45s ease-in-out, box-shadow 0.45s ease-in-out;
   &:hover {
     background-color: #7d4c1c;
     border-color: #7d4c1c;
@@ -75,125 +77,231 @@ p {
   width: 100%;
 }
 
-.scroll-card-container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  position: sticky;
-  top: 0;
-  padding-top: 10vh;
-
-  & .scroll-card {
-    width: 100%;
-    height: 45vw;
-    border: 2px solid black;
-    border-radius: 25px;
+@media (min-width: 700px) {
+  .scroll-card-container {
+    height: 100vh;
+    max-width: 100vw;
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    padding-top: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    position: sticky;
+    top: 0;
+    padding-top: 10vh;
 
-    &.one {
-      position: relative;
-      top: -5%;
-      background: radial-gradient(
-        50% 100% at 50% 0%,
-        rgb(62, 204, 118) 0%,
-        #30b566 100%
-      );
-      border: none;
-      animation: scale-down1 linear forwards;
-      animation-timeline: scroll();
+    & .scroll-card {
+      width: 90%;
+      border: 2px solid black;
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
 
-      & h2 {
-        color: rgb(255, 247, 229);
-      }
-
-      & p {
-        color: rgb(255, 247, 229);
-      }
-
-      & .btn-primary {
-        background-color: #14ab50;
-        border-color: #30b566;
-        color: rgb(255, 247, 229);
-        &:hover {
-            background-color: #0e7337;
-        }
-      }
-    }
-
-    &.two {
-      position: relative;
-      top: -3%;
-      background: radial-gradient(
-        147.4% 100% at 50% 0%,
-        #fdda68 0%,
-        #fbc411 100%
-      );
-      border: none;
-      animation: scale-down2 linear forwards;
-      animation-timeline: scroll();
-
-      & h2 {
-        color: #A800B0;
-      }
-
-      & p {
-        color: #A800B0;
-      }
-
-      & .btn-primary {
-        background-color: #A800B0;
+      &.one {
+        position: relative;
+        top: -5%;
+        background: radial-gradient(
+          50% 100% at 50% 0%,
+          rgb(62, 204, 118) 0%,
+          #30b566 100%
+        );
         border: none;
-        &:hover {
+        animation: scale-down1 linear forwards;
+        animation-timeline: scroll();
+
+        & h2 {
+          color: rgb(255, 247, 229);
+        }
+
+        & p {
+          color: rgb(255, 247, 229);
+        }
+
+        & .btn-primary {
+          background-color: #14ab50;
+          border-color: #30b566;
+          color: rgb(255, 247, 229);
+          &:hover {
+            background-color: #0e7337;
+          }
+        }
+      }
+
+      &.two {
+        position: relative;
+        top: -3%;
+        background: radial-gradient(
+          147.4% 100% at 50% 0%,
+          #fdda68 0%,
+          #fbc411 100%
+        );
+        border: none;
+        animation: scale-down2 linear forwards;
+        animation-timeline: scroll();
+
+        & h2 {
+          color: #a800b0;
+        }
+
+        & p {
+          color: #a800b0;
+        }
+
+        & .btn-primary {
+          background-color: #a800b0;
+          border: none;
+          &:hover {
             background-color: #e9a319;
+          }
+        }
+      }
+
+      &.three {
+        position: relative;
+        top: -1%;
+        background: radial-gradient(
+          75% 150% at 50% 0%,
+          #ff8600 0%,
+          rgb(255, 74, 0) 100%
+        );
+        border: none;
+
+        & h2 {
+          color: rgb(255, 247, 229);
+        }
+
+        & p {
+          color: rgb(255, 247, 229);
         }
       }
     }
+  }
 
-    &.three {
-      position: relative;
-      top: -1%;
-      background: radial-gradient(
-        75% 150% at 50% 0%,
-        #ff8600 0%,
-        rgb(255, 74, 0) 100%
-      );
-      border: none;
+  @keyframes scale-down1 {
+    from {
+      transform: scale(1.2);
+    }
+    to {
+      transform: scale(0.7) translateY(-40px);
+    }
+  }
 
-      & h2 {
-        color: rgb(255, 247, 229);
+  @keyframes scale-down2 {
+    from {
+      transform: scale(1.2);
+    }
+    to {
+      transform: scale(0.9) translateY(-10px);
+    }
+  }
+
+  .scroll-card-container .scroll-card:last-child {
+    padding-bottom: 10px; /* or a value that looks good */
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 699px) {
+  .scroll-card-container {
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 10px;
+
+    & .scroll-card {
+      width: 100%;
+      height: 100%;
+      border: 2px solid black;
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
+
+      &.one {
+        position: relative;
+        top: -5%;
+        background: radial-gradient(
+          50% 100% at 50% 0%,
+          rgb(62, 204, 118) 0%,
+          #30b566 100%
+        );
+        border: none;
+        animation: scale-down1 linear forwards;
+        animation-timeline: scroll();
+
+        & h2 {
+          color: rgb(255, 247, 229);
+        }
+
+        & p {
+          color: rgb(255, 247, 229);
+        }
+
+        & .btn-primary {
+          background-color: #14ab50;
+          border-color: #30b566;
+          color: rgb(255, 247, 229);
+          &:hover {
+            background-color: #0e7337;
+          }
+        }
       }
 
-      & p {
-        color: rgb(255, 247, 229);
+      &.two {
+        position: relative;
+        top: -3%;
+        background: radial-gradient(
+          147.4% 100% at 50% 0%,
+          #fdda68 0%,
+          #fbc411 100%
+        );
+        border: none;
+        animation: scale-down2 linear forwards;
+        animation-timeline: scroll();
+
+        & h2 {
+          color: #a800b0;
+        }
+
+        & p {
+          color: #a800b0;
+        }
+
+        & .btn-primary {
+          background-color: #a800b0;
+          border: none;
+          &:hover {
+            background-color: #e9a319;
+          }
+        }
+      }
+
+      &.three {
+        position: relative;
+        top: -1%;
+        background: radial-gradient(
+          75% 150% at 50% 0%,
+          #ff8600 0%,
+          rgb(255, 74, 0) 100%
+        );
+        border: none;
+
+        & h2 {
+          color: rgb(255, 247, 229);
+        }
+
+        & p {
+          color: rgb(255, 247, 229);
+        }
       }
     }
   }
-}
-
-@keyframes scale-down1 {
-  from {
-    transform: scale(1.2);
-  }
-  to {
-    transform: scale(0.7) translateY(-40px);
-  }
-}
-
-@keyframes scale-down2 {
-  from {
-    transform: scale(1.2);
-  }
-  to {
-    transform: scale(0.9) translateY(-10px);
-  }
-}
-
-#still-here {
 }
 
 .footer {
