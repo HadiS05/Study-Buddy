@@ -3,16 +3,20 @@ body {
   margin: 0;
   padding: 0;
   border: none;
-  height: 100vh;
-  width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
   background-color: #fcefcb;
+  overflow-x: hidden;
 }
 
 .navbar {
-  background-color: #e9a319;
+  background: linear-gradient(to right, #f7b228, #e9a319, #fcb645, #fad59a);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+
   & .navbar-brand {
-    color: #7d4c1c;
-    font-weight: 100px;
+    color: rgb(255, 247, 229);
+    font-weight: bold;
   }
 
   & .nav-link {
@@ -20,11 +24,11 @@ body {
   }
 
   & .dropdown-menu {
-    background-color: #e9a319;
+    background-color: #fcb645ef;
 
     & > li > a:hover {
       background-image: none;
-      background-color: #d99918;
+      background-color: #e9a319;
       color: #7d4c1c;
     }
 
@@ -34,38 +38,269 @@ body {
   }
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 10% 0%;
+  }
+  50% {
+    background-position: 91% 100%;
+  }
+  100% {
+    background-position: 10% 0%;
+  }
+}
+
+h1 {
+  color: #623c16;
+}
+
+p {
+  color: #7d4c1c;
+}
 .btn-warning {
   color: #7d4c1c;
 }
 
 .btn-primary {
-  background-color: #d99918;
+  background-color: #fcb645;
   border-color: #e9a319;
-
+  transition: color 0.45s ease-in-out, background-color 0.45s ease-in-out,
+    border-color 0.45s ease-in-out, box-shadow 0.45s ease-in-out;
   &:hover {
     background-color: #7d4c1c;
     border-color: #7d4c1c;
   }
 }
 
-#coconutbrain {
-  height: 30rem;
+#inlineimage {
+  height: 100%;
+  width: 100%;
 }
 
-.scroll-card-container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 10vh;
-  position: sticky;
-  top: 0;
+@media (min-width: 700px) {
+  .scroll-card-container {
+    height: 100vh;
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: sticky;
+    top: 0;
+    padding-top: 10vh;
 
-  & .card {
-    width: 100%;
-    height: 35vw;
-    border: 2px solid black;
-    background-color: beige;
+    & .scroll-card {
+      width: 90%;
+      border: 2px solid black;
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
+
+      &.one {
+        position: relative;
+        top: -5%;
+        background: radial-gradient(
+          50% 100% at 50% 0%,
+          rgb(62, 204, 118) 0%,
+          #30b566 100%
+        );
+        border: none;
+        animation: scale-down1 linear forwards;
+        animation-timeline: scroll();
+
+        & h2 {
+          color: rgb(255, 247, 229);
+        }
+
+        & p {
+          color: rgb(255, 247, 229);
+        }
+
+        & .btn-primary {
+          background-color: #14ab50;
+          border-color: #30b566;
+          color: rgb(255, 247, 229);
+          &:hover {
+            background-color: #0e7337;
+          }
+        }
+      }
+
+      &.two {
+        position: relative;
+        top: -3%;
+        background: radial-gradient(
+          147.4% 100% at 50% 0%,
+          #fdda68 0%,
+          #fbc411 100%
+        );
+        border: none;
+        animation: scale-down2 linear forwards;
+        animation-timeline: scroll();
+
+        & h2 {
+          color: #a800b0;
+        }
+
+        & p {
+          color: #a800b0;
+        }
+
+        & .btn-primary {
+          background-color: #a800b0;
+          border: none;
+          &:hover {
+            background-color: #e9a319;
+          }
+        }
+      }
+
+      &.three {
+        position: relative;
+        top: -1%;
+        background: radial-gradient(
+          75% 150% at 50% 0%,
+          #ff8600 0%,
+          rgb(255, 74, 0) 100%
+        );
+        border: none;
+
+        & h2 {
+          color: rgb(255, 247, 229);
+        }
+
+        & p {
+          color: rgb(255, 247, 229);
+        }
+      }
+    }
+  }
+
+  @keyframes scale-down1 {
+    from {
+      transform: scale(1.2);
+    }
+    to {
+      transform: scale(0.7) translateY(-40px);
+    }
+  }
+
+  @keyframes scale-down2 {
+    from {
+      transform: scale(1.2);
+    }
+    to {
+      transform: scale(0.9) translateY(-10px);
+    }
+  }
+
+  .scroll-card-container .scroll-card:last-child {
+    padding-bottom: 10px; /* or a value that looks good */
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 699px) {
+  .scroll-card-container {
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 10px;
+
+    & .scroll-card {
+      width: 100%;
+      height: 100%;
+      border: 2px solid black;
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
+
+      &.one {
+        position: relative;
+        top: -5%;
+        background: radial-gradient(
+          50% 100% at 50% 0%,
+          rgb(62, 204, 118) 0%,
+          #30b566 100%
+        );
+        border: none;
+        animation: scale-down1 linear forwards;
+        animation-timeline: scroll();
+
+        & h2 {
+          color: rgb(255, 247, 229);
+        }
+
+        & p {
+          color: rgb(255, 247, 229);
+        }
+
+        & .btn-primary {
+          background-color: #14ab50;
+          border-color: #30b566;
+          color: rgb(255, 247, 229);
+          &:hover {
+            background-color: #0e7337;
+          }
+        }
+      }
+
+      &.two {
+        position: relative;
+        top: -3%;
+        background: radial-gradient(
+          147.4% 100% at 50% 0%,
+          #fdda68 0%,
+          #fbc411 100%
+        );
+        border: none;
+        animation: scale-down2 linear forwards;
+        animation-timeline: scroll();
+
+        & h2 {
+          color: #a800b0;
+        }
+
+        & p {
+          color: #a800b0;
+        }
+
+        & .btn-primary {
+          background-color: #a800b0;
+          border: none;
+          &:hover {
+            background-color: #e9a319;
+          }
+        }
+      }
+
+      &.three {
+        position: relative;
+        top: -1%;
+        background: radial-gradient(
+          75% 150% at 50% 0%,
+          #ff8600 0%,
+          rgb(255, 74, 0) 100%
+        );
+        border: none;
+
+        & h2 {
+          color: rgb(255, 247, 229);
+        }
+
+        & p {
+          color: rgb(255, 247, 229);
+        }
+      }
+    }
   }
 }
 
