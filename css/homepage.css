@@ -59,6 +59,10 @@ p {
 }
 .btn-warning {
   color: #7d4c1c;
+
+  &:hover {
+    color: #7d4c1c;
+  }
 }
 
 .btn-primary {
