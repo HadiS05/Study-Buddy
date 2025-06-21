@@ -1,0 +1,13 @@
+.container-fluid {
+    --card-color: black;
+}
+
+.card-slot {
+    background:
+  radial-gradient(ellipse at top left, var(--card-color), transparent),
+  radial-gradient(ellipse at bottom right, var(--card-color), transparent);
+}
+
+.to-do-content {
+    color: whitesmoke;
+}

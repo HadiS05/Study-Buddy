@@ -16,24 +16,10 @@
 
   <body>
     <header class="p-3 mb-3 border-bottom">
-      <div class="container">
+      <div class="container-fluid mx-0 w-100">
         <div
-          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+          class="d-flex flex-wrap align-items-center justify-content-center"
         >
-          <a
-            href="/"
-            class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"
-          >
-            <svg
-              class="bi me-2"
-              width="40"
-              height="32"
-              role="img"
-              aria-label="Bootstrap"
-            >
-              <use xlink:href="#bootstrap"></use>
-            </svg>
-          </a>
           <ul
             class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
           >
@@ -69,7 +55,6 @@
               />
             </a>
             <ul class="dropdown-menu text-small">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
               <li><a class="dropdown-item" href="#">Settings</a></li>
               <li><a class="dropdown-item" href="#">Profile</a></li>
               <li><hr class="dropdown-divider" /></li>
@@ -90,6 +75,27 @@
         <iframe class="border border-tertiary rounded px-2" src="todolist.html" title="to-do list" style="width: 100%; margin: 0; padding: 0; border: none;"></iframe>
       </div>
     </div>
+
+    <div class="card mx-3 mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Study Time Progression</h5>
+        <p class="card-text">
+          See how long you've studied this week.
+        </p>
+        <iframe class="border border-tertiary rounded px-2" src="studyprogress.html" title="study-progress" style="width: 100%; margin: 0; padding: 0; border: none;"></iframe>
+      </div>
+    </div>
+
+    <div class="card mx-3 mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Upcoming Sessions</h5>
+        <p class="card-text">
+          View your upcoming study sessions.
+        </p> 
+        <iframe class="border border-tertiary rounded px-2" src="studysessions.html" title="study-progress" style="width: 100%; margin: 0; padding: 0; border: none;"></iframe>
+      </div>
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
