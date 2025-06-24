@@ -1,0 +1,23 @@
+.container-fluid {
+    --background-color: white;
+    --secondary-color: white;
+}
+
+.course {
+    background-image: radial-gradient(
+          50% 100% at 50% 0%,
+          var(--secondary-color) 0%,
+          var(--background-color) 100%
+        );
+
+    color: whitesmoke;
+    border: none;
+}
+
+.course:hover {
+     background-image: radial-gradient(
+          50% 100% at 50% 0%,
+          var(--secondary-color) 50%,
+          var(--background-color) 100%
+        );
+}
