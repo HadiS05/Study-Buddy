@@ -24,7 +24,7 @@ body {
   }
 
   & .dropdown-menu {
-    background-color: #fcb645ef;
+    background-color: #fcb645f9;
 
     & > li > a:hover {
       background-image: none;
