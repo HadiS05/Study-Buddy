@@ -1,3 +1,11 @@
 .btn-circle {
     border-radius: 50%;
 }
+
+#month-name {
+    color: var(--bs-gray-dark) !important;
+
+    &:hover {
+        color: var(--bs-gray) !important;
+    }
+}

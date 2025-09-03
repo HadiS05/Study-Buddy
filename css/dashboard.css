@@ -1,0 +1,29 @@
+body {
+    background-color: #fdf8ed;
+}
+
+header {
+    background-color: #fcefcb;
+}
+
+.nav-link {
+    background-color: #fcb645;
+    border-color: #e9a319;
+    &:hover {
+    background-color: #7d4c1c;
+    border-color: #7d4c1c;
+  }
+}
+
+.link-secondary {
+    background-color: #7d4c1c;
+    color: white !important;
+
+}
+
+.link-body-emphasis {
+    color: white !important;
+    &:hover {
+        color: white !important;
+    }
+}
